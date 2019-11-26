@@ -1,4 +1,13 @@
 var app = require('./app');
+var errorHandler = require('errorhandler');
+
+/**
+ * Error Handler. Provides full stack - remove for production
+ */
+var NODE_ENV = process.env.NODE_ENV;
+if (NODE_ENV !== 'production') {
+  app.use(errorHandler());
+}
 
 var server = app.listen(app.get('port'), function () {
   console.log(
