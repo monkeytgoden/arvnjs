@@ -1,0 +1,5 @@
+<span class="img-upload__message" *ngIf="message">{{message}}</span>
+<div class="img-upload__input img-input">
+  <img class="img-input__preview" [src]="imgURL" *ngIf="imgURL">
+  <input id="file" class="img-input__select" #file type="file" accept='image/*' (change)="onSelectFile($event)" />
+</div>

@@ -1,0 +1,18 @@
+.img-upload {
+  &__message {
+    color: red;
+  }
+  &__input {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.img-input {
+  &__preview {
+    width: 12rem;
+  }
+  &__select {
+    padding-top: 1.5rem;
+  }
+}

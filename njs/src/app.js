@@ -10,7 +10,7 @@ const expressValidator = require('express-validator');
 const mongooseConn = require('./configs/mongoose');
 const routes = require('./routes');
 const jwt = require('express-jwt');
-const publicRoutes = ['/api/v1/login'];
+const publicRoutes = ['/api/v1/login', '/src/assets/*'];
 
 dotenv.config({
   path: '.env'
@@ -20,7 +20,9 @@ app.set('port', process.env.PORT || 9999);
 
 app.use(morgan("dev"));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json(
+  {limit: '50mb'}
+));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressValidator());
 

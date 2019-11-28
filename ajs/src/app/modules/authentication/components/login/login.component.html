@@ -1,0 +1,35 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-card__logo">
+      <img src="/assets/images/pages/login/anonymous.png" alt="logo" />
+    </div>
+    <form class="login-card__form">
+      <mat-form-field>
+        <mat-label>{{ "BASE.languages" | translate }}</mat-label>
+        <mat-select #languages [value]="localStorage.getItem('lang')"
+          (selectionChange)="i18nService.changeLang(languages.value)">
+          <mat-option value="vi">{{
+            "I18N.vietnamese" | translate
+          }}</mat-option>
+          <mat-option value="en">{{ "I18N.english" | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="{{ 'LOGIN.userName' | translate }}" [formControl]="userName" required />
+        <mat-error *ngIf="userName.invalid">
+          {{ "LOGIN.userNameIsRequired" | translate }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="u-margin-bottom-small">
+        <input matInput type="password" placeholder="{{ 'LOGIN.password' | translate }}" [formControl]="password"
+          required autocomplete="false" />
+        <mat-error *ngIf="password.invalid">
+          {{ "LOGIN.passwordIsRequired" | translate }}
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="login()">
+        {{ "LOGIN.login" | translate }}
+      </button>
+    </form>
+  </div>
+</div>

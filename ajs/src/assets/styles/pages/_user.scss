@@ -1,0 +1,23 @@
+.user-container {
+  padding: 25px 75px 75px 75px;
+
+  table {
+    width: 100%;
+  }
+
+  .users-controls {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.add-user-container {
+  display: flex;
+  flex-direction: column;
+  .add-user-form > * {
+    width: 100%;
+  }
+  .add-user-controls {
+    justify-content: flex-end;
+  }
+}

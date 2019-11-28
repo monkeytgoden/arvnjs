@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 
 const userController = {};
-const fields = '_id user_name email first_name last_name birthday gender maritalStatus address mobile avatar status created_date created_by updated_date updated_by';
+const fields = '_id user_name email first_name last_name birthday gender marital_status address mobile avatar status created_date created_by updated_date updated_by';
 
 userController.getUsers = function (req, res) {
     User.find({}, fields, function (err, result) {
@@ -42,7 +42,7 @@ userController.getUserById = function (req, res) {
     });
 };
 
-userController.updateUser = async function (req, res) {
+userController.updateUser = async function (req, res) {   
     let path = null;
     if (req.body.newAvatar && req.body.newAvatar.file) {
       const file = req.body.newAvatar.file.toString();

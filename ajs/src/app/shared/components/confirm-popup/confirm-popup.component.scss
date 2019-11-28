@@ -1,0 +1,13 @@
+.popup-confirm {
+  h1 {
+    color: orange;
+  }
+  display: flex;
+  flex-direction: column;
+  .add-user-form > * {
+    width: 100%;
+  }
+  .add-user-controls {
+    justify-content: flex-end;
+  }
+}

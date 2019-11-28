@@ -1,0 +1,52 @@
+<div class="user-detail">
+  <mat-card class="user-detail__card">
+    <mat-card-header>
+      <div mat-card-avatar class="user-detail__avatar">
+        <img [src]="user?.avatar" alt="avatar" width="100%" *ngIf="user?.avatar" alt="avatar">
+      </div>
+      <mat-card-title>{{ (user?.first_name || '') + ' ' + (user?.last_name || '') }}</mat-card-title>
+      <mat-card-subtitle>
+        <mat-icon *ngIf="user?.status === 'active'" color="primary">visibility</mat-icon>
+        <mat-icon *ngIf="user?.status === 'deactive'" color="warn">visibility_off</mat-icon>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="activeDeactive('active')" [disabled]="user?.status === 'active'">Active</button>
+      <button mat-button (click)="activeDeactive('deactive')" [disabled]="user?.status === 'deactive'">Deactive</button>
+    </mat-card-actions>
+
+    <mat-card-content class="u-margin-top-small">
+      <div class="user-prop">
+        <div class="user-prop__name">Username</div>
+        <div class="user-prop__value">{{ user?.user_name }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Email</div>
+        <div class="user-prop__value">{{ user?.email }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Birthday</div>
+        <div class="user-prop__value">{{ user?.birthday | datef:'dd/MM/yyyy' }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Gender</div>
+        <div class="user-prop__value">{{ user?.gender }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Marital Status</div>
+        <div class="user-prop__value">{{ user?.marital_status }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Mobile</div>
+        <div class="user-prop__value">{{ user?.mobile }}</div>
+      </div>
+      <div class="user-prop">
+        <div class="user-prop__name">Created Date</div>
+        <div class="user-prop__value">{{ user?.created_date | datef:'dd/MM/yyyy' }}</div>
+      </div>
+      <div #userAddress class="user-detail__address">
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

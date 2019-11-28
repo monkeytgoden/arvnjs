@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="header__left">
+    <img src="assets/images/gmap/icons8-monkey-40.png" alt="logo" class="main-logo">
+  </div>
+  <div class="header__center">
+    <ul class="main-nav">
+      <li><a class="main-nav__link" href="/home">Home</a></li>
+      <li><a class="main-nav__link" href="/user">User</a></li>
+    </ul>
+  </div>
+  <div class="header__right">
+    <div class="user-control">
+      <button mat-button (click)="logout()">{{ 'BASE.logout' | translate }}</button>
+    </div>
+    <ul class="i18n">
+      <li class="dropdown-i18n">
+        <img class="active-flag" [src]="'assets/images/base/i18n/' + localStorage.getItem('lang') + '.png'">
+
+        <div class="dropdown-i18n__content" *ngFor="let lang of langs;">
+          <img *ngIf="lang !== localStorage.getItem('lang') " [src]="'assets/images/base/i18n/' + lang + '.png'" (click)="i18nService.changeLang(lang)">
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

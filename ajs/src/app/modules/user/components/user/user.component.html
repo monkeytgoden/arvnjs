@@ -1,0 +1,70 @@
+<div class="user-container">
+  <div class="users-controls">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="openDialog('add')">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- avatar Column -->
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Avatar </th>
+      <td mat-cell *matCellDef="let element">
+        <img *ngIf="element.avatar" width="32" [src]="element.avatar" alt="avatar">
+      </td>
+    </ng-container>
+
+    <!-- user_name Column -->
+    <ng-container matColumnDef="user_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.user_name}} </td>
+    </ng-container>
+
+    <!-- full name Column -->
+    <ng-container matColumnDef="full_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+      <td mat-cell *matCellDef="let element"> {{(element.first_name || '') + ' ' + (element.last_name || '')}} </td>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element">
+          <mat-icon *ngIf="element?.status === 'active'" color="primary">visibility</mat-icon>
+          <mat-icon *ngIf="element?.status === 'deactive'" color="warn">visibility_off</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- created_date Column -->
+    <ng-container matColumnDef="created_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_date | datef:'dd/MM/yyyy'}} </td>
+    </ng-container>
+
+    <!-- controls Column -->
+    <ng-container matColumnDef="controls">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="openDialog('edit', element, $event)">
+          <mat-icon>edit_circle</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openDialog('delete', element, $event)">
+          <mat-icon>delete_circle</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openUserDetail(row)"></tr>
+  </table>
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+  </mat-paginator>
+</div>

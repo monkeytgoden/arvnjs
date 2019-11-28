@@ -1,0 +1,18 @@
+{
+  "BASE": {
+    "languages": "Languages",
+    "logout": "Logout"
+  },
+  "I18N": {
+    "vietnamese": "Vietnamese",
+    "english": "English"
+  },
+  "LOGIN": {
+    "login": "Login",
+    "userName": "UserName",
+    "password": "Password",
+    "userNameIsRequired": "UserName is required!",
+    "passwordIsRequired": "Password is required!",
+    "incorrectUserNameOrPassword": "Incorrect username or password!"
+  }
+}

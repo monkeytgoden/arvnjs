@@ -1,0 +1,52 @@
+<div class="add-user-container">
+  <h1 mat-dialog-title>{{ data.type==='add' ? 'Add New User' : 'Edit User' }}</h1>
+  <div mat-dialog-content>
+    <form class="add-user-form">
+      <mat-form-field>
+        <mat-label>User Name</mat-label>
+        <input matInput [(ngModel)]="data.user_name" name="user_name" appInputFormat [inputFormat]="'lowercase'">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="data.password" name="password">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="data.first_name" name="first_name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="data.last_name" name="last_name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email" name="email">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Birthday</mat-label>
+        <input matInput [(ngModel)]="data.birthday" name="birthday">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput [(ngModel)]="data.gender" name="gender">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Marital Status</mat-label>
+        <input matInput [(ngModel)]="data.marital_status" name="marital_status">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mobile</mat-label>
+        <input matInput [(ngModel)]="data.mobile" name="mobile">
+      </mat-form-field>
+      <div>
+        <mat-label>Avatar</mat-label>
+        <app-img-upload [imgURL]="data?.avatar" (avatarChange)="onChangeAvatar($event)"></app-img-upload>
+      </div>
+    </form>
+  </div>
+  <div mat-dialog-actions class="add-user-controls">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button *ngIf="data.type==='add'" mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+    <button *ngIf="data.type==='edit'" mat-button [mat-dialog-close]="data" cdkFocusInitial>Update</button>
+  </div>
+</div>

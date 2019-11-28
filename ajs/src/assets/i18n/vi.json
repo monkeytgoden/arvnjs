@@ -1,0 +1,18 @@
+{
+  "BASE": {
+    "languages": "Ngôn ngữ",
+    "logout": "Đăng xuất"
+  },
+  "I18N": {
+    "vietnamese": "Tiếng Việt",
+    "english": "English"
+  },
+  "LOGIN": {
+    "login": "Đăng nhập",
+    "userName": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "userNameIsRequired": "Tên đăng nhập không được trống!",
+    "passwordIsRequired": "Mật khẩu không được trống!",
+    "incorrectUserNameOrPassword": "Tên đăng nhập hoặc mật khẩu không đúng!"
+  }
+}
